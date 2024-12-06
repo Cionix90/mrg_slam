@@ -44,3 +44,6 @@ Here are some things to consider when using the `mrg_slam` package:
 - When using multiple robots, the initial poses of all robots should be set w.r.t. the same global frame.
    - The initial poses of the robots needs to be set using the `x`, `y`, `z` (in meters) and `roll`, `pitch`, and `yaw` (in radians) parameters in the configuration file. Alternatively, the initial pose can be set using the command line arguments. `ros2 launch mrg_slam mrg_slam.launch.py model_namespace:=robot1 x:=0.0 y:=0.0 z:=0.0 roll:=0.0 pitch:=0.0 yaw:=0.0`.
   - Each robot performs SLAM in its own local frame. We enable a static transform broadcaster `map2robotmap_publisher` node to publish the transform between the global frame `map` and the local frame of the robot `model_namespace/map`. This way the maps of all robots can be visualized in the global frame rviz2.
+
+  ## Omnicar Demos
+  - The Omnicar demo coniguration file is `omnicar.yaml` and executing the `ros2 launch mrg_slam mrg_slam.launch.py config:=omnicar.yaml` will perform the mapping process having the starting point as the origin. 
